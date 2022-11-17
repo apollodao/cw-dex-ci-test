@@ -257,6 +257,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "cw-bigint"
+version = "0.4.3"
+source = "git+https://github.com/apollodao/cw-bigint#c2217a76b08cb65204db407f661298c48b01e763"
+dependencies = [
+ "autocfg",
+ "num-integer",
+ "num-traits",
+]
+
+[[package]]
 name = "cw-controllers"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -295,6 +305,7 @@ dependencies = [
  "cosmwasm-std",
  "cosmwasm-storage",
  "cw-asset",
+ "cw-bigint",
  "cw-storage-plus 0.16.0",
  "cw-utils 0.11.1",
  "cw20 0.10.3",

@@ -3,6 +3,7 @@
 
 pub mod astroport;
 pub mod junoswap;
+pub mod math;
 pub mod osmosis;
 pub mod pool;
 
