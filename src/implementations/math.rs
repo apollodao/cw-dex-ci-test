@@ -66,13 +66,11 @@ pub fn calc_xyk_balancing_swap(
 
     let fee = (BigInt::from(fee.atomics().u128()) * &precision) / BigInt::from(10u128.pow(18));
 
-    // Calculate amount to swap by setting up quadratic equation
+    // Calculate amount to swap by solving quadratic equation
     let a = &ask_reserve + &ask_amount;
     let b = 2u128 * &offer_reserve * (&ask_reserve + &ask_amount)
         - ((&offer_reserve + &offer_amount) * &ask_reserve * &fee) / &precision;
     let c = &offer_reserve * (&offer_reserve * &ask_amount - &offer_amount * &ask_reserve);
-
-    // Solve quadratic equation
     let discriminant = &b * &b - (4u128 * &a * &c);
     //  We know that for this equation, there is only one positive real solution
     let x = (bigint_sqrt(discriminant)? - b) / (2u128 * a);
