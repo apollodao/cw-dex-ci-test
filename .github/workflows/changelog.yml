@@ -31,4 +31,4 @@ jobs:
         with:
           add: '${{ env.file_name }}'
           message: 'Generate ${{ env.file_name }}'
-          push: 'HEAD:master'
+          push: 'origin HEAD:${{ github.head_ref }}'

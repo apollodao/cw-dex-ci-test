@@ -32,6 +32,12 @@ jobs:
           key: "package.version"
           value: "${{ steps.semver.outputs.nextStrict }}"
 
+      - name: Debug
+        run: |
+          pwd
+          ls
+          git status
+
       - name: Commit changes, tag and push
         uses: EndBug/add-and-commit@v9.1.1
         with:
