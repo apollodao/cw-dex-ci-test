@@ -16,7 +16,7 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}§
+          ref: ${{ github.head_ref }}§
 
       - name: Generate a changelog
         uses: orhun/git-cliff-action@v1
