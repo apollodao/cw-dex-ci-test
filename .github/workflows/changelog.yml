@@ -16,7 +16,6 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.APOLLO_CI_PAT }}
           ref: ${{ github.head_ref }}
 
       - name: Generate a changelog
@@ -34,4 +33,15 @@ jobs:
         with:
           add: '${{ env.file_name }}'
           message: 'Generate ${{ env.file_name }}'
-          push: true
+          push: false
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v4.2.3
+        with:
+          token: ${{ github.token }}
+          base: master
+          branch: changelog/${{ github.event.pull_request.number }}
+          signoff: true
+          assignees: ${{ github.event.pull_request.author }}
+
+
