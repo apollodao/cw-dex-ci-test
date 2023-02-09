@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
 
       - name: Generate a changelog
         uses: orhun/git-cliff-action@v1
@@ -41,7 +39,7 @@ jobs:
           token: ${{ github.token }}
           base: master
           branch: changelog/${{ github.event.pull_request.number }}
+          title: "Generate CHANGELOG.md"
           signoff: true
-          assignees: ${{ github.event.pull_request.author }}
 
 
