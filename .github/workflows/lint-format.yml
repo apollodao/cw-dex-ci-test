@@ -45,3 +45,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: machete
+
+      - name: Lint todo comments
+        run: ./scripts/todo-lint.sh
+
